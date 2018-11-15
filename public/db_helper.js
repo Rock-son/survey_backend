@@ -13,7 +13,7 @@ exports.writeToDb = function(req) {
 			const ip = getIp(req);
 
 			if (lunches.ip.indexOf(ip) > -1 ) {
-				return reject("A vote has already been cast from your IP!");
+				//return reject("A vote has already been cast from your IP!");
 			}
 			lunches.types[lunchType] += 1;
 			lunches.ip.push(ip);
