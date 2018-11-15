@@ -49,7 +49,7 @@ app.post("/api/push-data/:token", (req, res) => {
 app.delete("/api/delete/:token", (req, res) => {
 	const token = req.params.token;
 	if (token === "23.11.1948") {
-		db.resetData()
+		return db.resetData()
 			.then(resp => res.send({ success: "All data deleted!"}))
 			.catch(err => res.send({"error": err }))
 	}
