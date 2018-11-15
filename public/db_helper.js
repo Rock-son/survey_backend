@@ -42,7 +42,7 @@ exports.resetData = function() {
 	return new Promise(function(resolve, reject) {
 		const lunches = JSON.stringify({ types: {"Klasično":0,"Kmečko":0,"Lovsko":0,"Maček":0, "Sestavljeno": 0}, ip: []});
 
-		fs.writeFile("./db/db.json", JSON.stringify(lunches), function (err) {
+		fs.writeFile("./db/db.json", lunches, function (err) {
 			if (err) { return reject(err); }
 				return resolve(lunches);
 		});
