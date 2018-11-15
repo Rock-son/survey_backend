@@ -28,15 +28,15 @@
 				data.addColumn('string', 'Vrsta');
 				data.addColumn('number', 'Število');
 				data.addRows([
-					[ "Klasično", #{classic}],
+					[ "Klasična", #{classic}],
 					[ "Maček", 	#{macek}],
-					[ "Kmečko", #{kmecko}],
-					[ "Lovsko", #{lovsko}],
-					[ "Sestavljeno", #{sestavljeno}],
+					[ "Kmečka", #{kmecko}],
+					[ "Lovska", #{lovsko}],
+					[ "Sestavljena", #{sestavljeno}],
 				]);
 				var izbranih = #{classic} + #{macek} + #{kmecko} + #{lovsko};
 				// Set chart options
-				var options = {'title':'Do sedaj glasovalo ('+ izbranih +' / 45):',
+				var options = {'title':'Do sedaj glasov: '+ izbranih +' / 45',
 								'width': 960,
 								'height': 700,
 								is3D: true
