@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<title></title>
+		<meta name="description" content="">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<!--Load the AJAX API-->
+		<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+		script.
+			// Load the Visualization API and the corechart package.
+			google.charts.load('current', {'packages':['corechart']});
+
+			// Set a callback to run when the Google Visualization API is loaded.
+			google.charts.setOnLoadCallback(drawChart);
+
+			// Callback that creates and populates a data table,
+			// instantiates the pie chart, passes in the data and
+			// draws it.
+			function drawChart() {
+
+				// Create the data table.
+				var data = new google.visualization.DataTable();
+				data.addColumn('string', 'Vrsta');
+				data.addColumn('number', 'Število');
+				data.addRows([
+					[ "Klasično", #{classic}],
+					[ "Maček", 	#{macek}],
+					[ "Kmečko", #{kmecko}],
+					[ "Lovsko", #{lovsko}],
+					[ "Sestavljeno", #{sestavljeno}],
+				]);
+				var izbranih = #{classic} + #{macek} + #{kmecko} + #{lovsko};
+				// Set chart options
+				var options = {'title':'Do sedaj glasovalo ('+ izbranih +' / 45):',
+								'width': 960,
+								'height': 700,
+								is3D: true
+							 };
+
+				// Instantiate and draw our chart, passing in some options.
+				var chart = new google.visualization.PieChart(document.getElementById('chart_div'));
+				chart.draw(data, options);
+			}
+		style.
+			body {
+				background-color: lightpink;
+			}
+			svg > g > text {
+				font-size: 20px;
+			}
+			svg > rect {
+				fill: transparent;
+			}
+			#chart_div {
+				top: 15%;
+				left: 0;
+				right: 0;
+				margin: auto;
+				position: absolute;
+				display: inline-block;
+				background-color: rgba(0,0,0,.4);
+				opacity: 1;
+				width: 760px;
+				height: 700px;
+				box-shadow: 0px 10px 35px black, 0px 0px 3px white, 1px 1px 1px white;
+				border-radius: 25px;
+			}
+			#chart_error {
+				margin-top: 5%;
+				left: 0;
+				right: 0;
+				text-align: center;
+				font-size: 25px;
+				position: absolute;
+				z-index: 100;
+				display: inline-block;
+				text-shadow: 1px 1px 5px black, 0px 0px 3px white, 1px 1px 1px white;
+				color: #d8d8d8;
+			}
+			.centered-bckgr {
+				position: absolute;
+				max-width: 100vw;
+				min-height: 100vh;
+				z-index: -1;
+			}
+			.google-visualization-tooltip text {
+				fill: #655858;
+			}
+			g text {
+				fill: #d8d8d8;
+			}
+			#chart_div > div, #chart_div > div > div {
+				display: inherit;
+			}
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" integrity="sha256-l85OmPOjvil/SOvVt3HnSSjzF1TUMyT9eV0c2BzEGzU=" crossorigin="anonymous" />
+	</head>
+	<body>
+		#chart_error #{error}
+		#chart_div
+		img.centered-bckgr(src="https://www.dropbox.com/s/1ujvzwg8i0mrdqw/Bovec.jpg?dl=1" alt="Slovenia_Bovec")
+	</body>
+</html>
